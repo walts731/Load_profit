@@ -22,7 +22,7 @@
   <!-- Your website content goes here -->
 
   <footer>
-    <p>&copy; 2024 Your Website. All rights reserved.</p>
+    <p>&copy; 2024 LTS. All rights reserved.</p>
   </footer>
 
 </body>

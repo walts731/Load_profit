@@ -1,5 +1,5 @@
 <?php
-    include('includes/connect.php');
+include('includes/connect.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,10 +14,13 @@
 </head>
 <body>
     <?php
-        include('includes/nav.php');
+    include('includes/nav.php');
     ?>
     <div class="container" style="margin-top: 80px;">
         <h2 class="mt-3">Archive Transactions</h2>
+        <?php
+        include('includes/clock.php');
+        ?>
 
         <?php
         // Query to fetch data from archive_transactions table, ordered by year
@@ -82,7 +85,7 @@
     </div>
 
     <?php
-        include('includes/footer.php');
+    include('includes/footer.php');
     ?>
 
     <!-- Add Bootstrap JS and Popper.js if needed -->

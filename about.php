@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LTS Load Tracking Service Blog</title>
+    <title>LTS Load Tracking Service</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         .container_about {
             margin-left: 200px;
-            margin-top: 50px;
+            margin-top: 100px;
             max-width: 800px;
             background-color: rgba(242, 242, 242, 0.8);
             padding: 20px;
@@ -95,6 +97,11 @@
             <p>© 2024 LTS Load Tracking Service | Designed by Walton Loneza</p>
         </footer>
     </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 </html>

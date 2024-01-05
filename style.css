@@ -178,6 +178,39 @@ button:hover {
   background: linear-gradient(to right, #004080, #0056b3); /* Darker blue gradient on hover */
 }
 
+.notification {
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px;
+  background-color: #b791d4; /* Softer Blue Violet color */
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  font-size: 16px;
+  opacity: 0;
+  animation: showNotification 3s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards; /* Cubic bezier for a softer transition */
+}
+
+@keyframes showNotification {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+
+
 
 
 
