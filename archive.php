@@ -16,8 +16,8 @@ include('includes/connect.php');
     <?php
     include('includes/nav.php');
     ?>
-    <div class="container" style="margin-top: 80px;">
-        <h2 class="mt-3">Archive Transactions</h2>
+    <div class="container mx-auto" style="margin-top: 80px;">
+        <h2 class="mt-3 mx-auto">Archive Transactions</h2>
         <?php
         include('includes/clock.php');
         ?>
@@ -29,55 +29,64 @@ include('includes/connect.php');
         // Execute the query
         $result = $conn->query($sql);
 
+        
+
         // Check if there are rows returned
         if ($result->num_rows > 0) {
             $currentYear = null;
-
+        }
             // Output data of each row
-            while ($row = $result->fetch_assoc()) {
-                // Get the year from the transaction date
-                $year = date("Y", strtotime($row["transaction_date"]));
+while ($row = $result->fetch_assoc()) {
+    // Get the year from the transaction date
+    $year = date("Y", strtotime($row["transaction_date"]));
 
-                // If the year changes, create a new section or folder
-                if ($year != $currentYear) {
-                    // Close the previous section if it exists
-                    if ($currentYear !== null) {
-                        echo "</tbody>";
-                        echo "</table>";
-                    }
-
-                    // Start a new section or folder for the current year
-                    echo "<h3 class='mt-3'>$year</h3>";
-                    echo "<table class='table'>";
-                    echo "<thead class='thead-light'>";
-                    echo "<tr><th>ID</th><th>Capital</th><th>Profit</th><th>Transaction Date</th></tr>";
-                    echo "</thead>";
-                    echo "<tbody>";
-
-                    // Update the current year
-                    $currentYear = $year;
-                }
-
-                // Output the transaction data within the current section or folder
-                echo "<tr>";
-                echo "<td>" . $row["id"] . "</td>";
-                echo "<td>" . $row["capital"] . "</td>";
-                echo "<td>" . $row["profit"] . "</td>";
-
-                // Format the transaction date
-                $formattedDate = date("M-d-Y g:i A", strtotime($row["transaction_date"]));
-                echo "<td>" . $formattedDate . "</td>";
-
-                echo "</tr>";
-            }
-
-            // Close the last section or folder
+    // If the year changes, create a new section or folder
+    if ($year != $currentYear) {
+        // Close the previous section if it exists
+        if ($currentYear !== null) {
+            // Output the total transactions for the year
+            echo "<tr class='table-info'><td colspan='3' class='text-right'><strong>Total Transactions</strong></td><td>$totalTransactions</td></tr>";
             echo "</tbody>";
             echo "</table>";
-        } else {
-            echo "No records found";
         }
 
+        // Start a new section or folder for the current year
+        echo "<h3 class='mt-3'>$year</h3>";
+        echo "<table class='table'>";
+        echo "<thead class='thead-light'>";
+        echo "<tr><th>ID</th><th>Capital</th><th>Profit</th><th>Transaction Date</th></tr>";
+        echo "</thead>";
+        echo "<tbody>";
+
+        // Reset total for the new year
+        $totalTransactions = 0;
+
+        // Update the current year
+        $currentYear = $year;
+
+    // Update total with the current ID
+    $totalTransactions += $row["id"];
+
+    // Output the transaction data within the current section or folder
+    echo "<tr>";
+    echo "<td>" . $row["id"] . "</td>";
+    echo "<td>" . $row["capital"] . "</td>";
+    echo "<td>" . $row["profit"] . "</td>";
+
+    // Format the transaction date
+    $formattedDate = date("M-d-Y g:i A", strtotime($row["transaction_date"]));
+    echo "<td>" . $formattedDate . "</td>";
+
+    echo "</tr>";
+}
+
+// Output the total transactions for the last year
+if ($currentYear !== null) {
+    echo "<tr class='table-info'><td colspan='3' class='text-right'><strong>Total Transactions</strong></td><td>$totalTransactions</td></tr>";
+    echo "</tbody>";
+    echo "</table>";
+}
+}
         // Close the database connection
         $conn->close();
         ?>

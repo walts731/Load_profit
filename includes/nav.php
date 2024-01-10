@@ -34,6 +34,30 @@
     border-radius: 20px;
 }
 
+
+
+.custom-search-container {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.custom-search-input {
+    width: 300px;
+    border-radius: 20px; /* Adjust the border-radius to make it more or less rounded */
+    padding: 10px; /* Adjust the padding for better appearance */
+    border: 1px solid #ccc; /* Add a border for better visibility */
+}
+
+.custom-search-btn {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 20px; /* Adjust the border-radius to match the search bar */
+    padding: 10px 20px; /* Adjust the padding for better appearance */
+    border: 1px solid #007bff; /* Add a border for better visibility */
+}
+
+   
+
     </style>
 </head>
 
@@ -45,6 +69,7 @@
         <a class="nav-link" href="index.php">Load Profit Tracker</a>
         <a class="nav-link" href="archive.php">Archive</a>
         <a class="nav-link" href="profit.php">Profit</a>
+        <a class="nav-link" href="balance.php">Balance</a>
         <a class="nav-link" href="about.php">About</a>
 
         <!-- Search Input -->
